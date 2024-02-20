@@ -19,7 +19,7 @@ public class SpecificationValueDAO implements DAO<SpecificationValue, Long> {
 
     public Optional<SpecificationValue> get(Long id) {
         return jdbcTemplate.query("SELECT * FROM SpecificationValue WHERE id=?",
-                        new Object[]{id}, new BeanPropertyRowMapper<>(SpecificationValue.class))
+                        new BeanPropertyRowMapper<>(SpecificationValue.class), new Object[]{id})
                 .stream().findFirst();
     }
 

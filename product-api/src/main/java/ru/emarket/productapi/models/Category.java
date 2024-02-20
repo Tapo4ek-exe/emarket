@@ -1,4 +1,4 @@
-package main.java.ru.emarket.productapi.models;
+package ru.emarket.productapi.models;
 
 public class Category {
     private Long id;

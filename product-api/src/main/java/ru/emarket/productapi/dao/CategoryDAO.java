@@ -1,6 +1,6 @@
 package ru.emarket.productapi.dao;
 
-import main.java.ru.emarket.productapi.models.Category;
+import ru.emarket.productapi.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class CategoryDAO implements DAO<Category, Long> {
 
     public Optional<Category> get(Long id) {
         return jdbcTemplate.query("SELECT * FROM Category WHERE id=?",
-                        new Object[]{id}, new BeanPropertyRowMapper<>(Category.class))
+                new BeanPropertyRowMapper<>(Category.class), new Object[]{id})
                 .stream().findFirst();
     }
 

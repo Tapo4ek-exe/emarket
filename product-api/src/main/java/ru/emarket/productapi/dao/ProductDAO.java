@@ -19,7 +19,7 @@ public class ProductDAO implements DAO<Product, Long> {
 
     public Optional<Product> get(Long id) {
         return jdbcTemplate.query("SELECT * FROM Product WHERE id=?",
-                        new Object[]{id}, new BeanPropertyRowMapper<>(Product.class))
+                        new BeanPropertyRowMapper<>(Product.class), new Object[]{id})
                 .stream().findFirst();
     }
 
