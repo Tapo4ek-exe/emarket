@@ -42,7 +42,11 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
@@ -53,13 +57,15 @@
 			<plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
-				<version>10.7.1</version>
+				<version>9.22.3</version>
 				<configuration>
 					<user>admin</user>
 					<password>admin</password>
+					<url>jdbc:postgresql://localhost:5432/emarket?currentSchema=emarket</url>
 					<schemas>
 						<schema>emarket</schema>
 					</schemas>
+					<cleanDisabled>false</cleanDisabled>
 				</configuration>
 			</plugin>
 		</plugins>
